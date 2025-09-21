@@ -36,6 +36,7 @@ public class SportController {
 				sc.nextLine();
 				
 				service.addSport(name, num, kcal, ckcal);
+				//설명이 야사시이
 				System.out.println("성공적으로 등록되었습니다.");
 				break;
 			}
