@@ -50,7 +50,7 @@ public class HospitalController {
 		
 		
 	
-	
+	//메소드로 따로 뺀건 좋은 선택이에요!
 	void inputpatient() {
 		System.out.println("아이디: ");
 		String id = sc.nextLine();
