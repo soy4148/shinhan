@@ -129,12 +129,17 @@ CREATE TABLE member (
 `insert into student (id, name, age) values (5, '간장이', 1);`
 
 * 데이터 수정
+
 `update student set age=2 where id=5; // 수정할 값, 조건`
+
+
 
 SQL에서는 작은 따옴표를 더 많이 쓴다!
 * -- < 주석 처리
 
+
 `select * from member order by name asc; // 한글도 ㄱㄴㄷ 순으로 정렬됨`
+
 
 
 회원 중 가장 나이가 많은/적은 회원의 정보 조회
