@@ -109,7 +109,7 @@ CREATE TABLE student (
 * **FOREIGN KEY**: 다른 테이블의 프라이머리 키와 연결해서 데이터의 관계 유지, 부모 테이블의 값만 입력 가능
 * **DEFAULT**: 값을 입력하지 않으면 자동으로 들어가는 기본값, 생략하면 지정된 값으로 자동 입력
 
-'''SQL
+'''javascript
 CREATE TABLE member (
   id      NUMBER PRIMARY KEY,
   name    VARCHAR2(30) NOT NULL,
@@ -121,12 +121,15 @@ CREATE TABLE member (
 '''
 
 * 테이블 지우기
-'drop table student;' //세미콜론 잊지 않기
+
+'drop table student;  //세미콜론 잊지 않기'
 
 * 데이터 한 행씩 넣기
+
 'insert into student (id, name, age) values (5, '간장이', 1);'
 
 * 데이터 수정
+
 'update student set age=2 where id=5; // 수정할 값, 조건'
 
 SQL에서는 작은 따옴표를 더 많이 쓴다!
@@ -136,7 +139,7 @@ SQL에서는 작은 따옴표를 더 많이 쓴다!
 
 
 회원 중 가장 나이가 많은/적은 회원의 정보 조회
-'''SQL
+'''javascript
 select * from member where age = (select max(age) from member);
 selext * from member where age = (select min(age) from member);
 '''
