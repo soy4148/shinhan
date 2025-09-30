@@ -66,3 +66,77 @@ p.167
 }
 
 * 값1은 변수[0][0]
+
+
+## SQL Plus
+
+'''SQL
+create user c##osaka(아이디) identified by 1234(비밀번호)
+grant connect, resource to c##osaka
+grant  // DB 접속 및 객체 생성 권한 부여
+grant DBA to c##osaka; // 모든 권한을 부여
+exit
+'''
+
+
+### 테이블 만들기
+'''SQL
+// 소문자로 작성해도 됨!
+
+CREATE TABLE student (
+  id   NUMBER PRIMARY KEY,	//유일한 키, number 범위 설정 가능
+  name  VARCHAR2(20), 		//valuable character, 20글자 자릿수
+  age  NUMBER				
+);
+'''
+
+* 테이블 확인
+'select table_name from user_tables;'
+
+* 테이블 구조 확인
+'desc student;'
+
+
+#### DDL과 DML
+* DDL은 데이터 정의어(DB 구조를 만들고, 바꾸고 지우기)
+* DML은 데이터 조작어(테이블 안의 데이터를 추가, 수정, 삭제, 조회)
+
+
+* **PRIMARY KEY**: 테이블에서 각 행을 유일하게 식별하는 컬럼, 중복X, NULL X, 한 테이블에 하나만
+* **UNIQUE**: NULL 외 중복 안됨, 여러 컬러 지정 가능, (이메일이나 전화번호 등 고유값)
+* **NOT NULL**: 값이 반드시 있어야 함, 필수 입력 컬럼
+* **CHECK**: 값이 특정 조건이나 범위에 맞아야 저장 가능
+* **FOREIGN KEY**: 다른 테이블의 프라이머리 키와 연결해서 데이터의 관계 유지, 부모 테이블의 값만 입력 가능
+* **DEFAULT**: 값을 입력하지 않으면 자동으로 들어가는 기본값, 생략하면 지정된 값으로 자동 입력
+
+'''SQL
+CREATE TABLE member (
+  id      NUMBER PRIMARY KEY,
+  name    VARCHAR2(30) NOT NULL,
+  email   VARCHAR2(100) UNIQUE,
+  age     NUMBER CHECK (age >= 0 AND age <= 120),
+  regdate DATE DEFAULT SYSDATE,
+  deptno  NUMBER REFERENCES dept(deptno)
+);
+'''
+
+* 테이블 지우기
+'drop table student;' //세미콜론 잊지 않기
+
+* 데이터 한 행씩 넣기
+'insert into student (id, name, age) values (5, '간장이', 1);'
+
+* 데이터 수정
+'update student set age=2 where id=5; // 수정할 값, 조건'
+
+SQL에서는 작은 따옴표를 더 많이 쓴다!
+* -- < 주석 처리
+
+'select * from member order by name asc; // 한글도 ㄱㄴㄷ 순으로 정렬됨'
+
+
+회원 중 가장 나이가 많은/적은 회원의 정보 조회
+'''SQL
+select * from member where age = (select max(age) from member);
+selext * from member where age = (select min(age) from member);
+'''
