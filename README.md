@@ -70,17 +70,17 @@ p.167
 
 ## SQL Plus
 
-'''SQL
+```SQL
 create user c##osaka(아이디) identified by 1234(비밀번호)
 grant connect, resource to c##osaka
 grant  // DB 접속 및 객체 생성 권한 부여
 grant DBA to c##osaka; // 모든 권한을 부여
 exit
-'''
+```
 
 
 ### 테이블 만들기
-'''SQL
+```SQL
 // 소문자로 작성해도 됨!
 
 CREATE TABLE student (
@@ -88,13 +88,13 @@ CREATE TABLE student (
   name  VARCHAR2(20), 		//valuable character, 20글자 자릿수
   age  NUMBER				
 );
-'''
+```
 
 * 테이블 확인
-'select table_name from user_tables;'
+`select table_name from user_tables;`
 
 * 테이블 구조 확인
-'desc student;'
+`desc student;`
 
 
 #### DDL과 DML
