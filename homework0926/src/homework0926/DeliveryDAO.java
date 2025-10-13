@@ -64,12 +64,16 @@ public class DeliveryDAO {
 	}
 
 
+	/* 
+	 * pw.printf("%d, %s, %d, %d, %d\n", ...);에서 \n을 잊으셔서 추가해드렸습니다!
+	 * 개행문자가 추가된 출력은 println뿐이랍니다. 
+	 */
 	private void writeCsv() {
 		try {
 			PrintWriter pw = new PrintWriter(new FileWriter(filename));
 			pw.println("id,name,price,order,total");
 			for(DeliveryDTO dto : deliveryList) {
-				pw.printf("%d, %s, %d, %d, %d", dto.getId(), dto.getName(), dto.getPrice(), dto.getOrder(), dto.getTotal());
+				pw.printf("%d, %s, %d, %d, %d\n", dto.getId(), dto.getName(), dto.getPrice(), dto.getOrder(), dto.getTotal());
 			}
 		} catch (IOException e) {
 			System.out.println("저장 실패: " + e.getMessage());

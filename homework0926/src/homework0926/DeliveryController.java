@@ -23,6 +23,10 @@ public class DeliveryController {
 	}
 
 	Scanner sc = new Scanner(System.in);
+
+	/*
+	 * try - catch를 사용하여 int가 아닌 값을 입력받았을 때의 예외처리를 추가한 사항 정말 좋은 것 같아요!
+	 */
 	
 	public void run() {
 		while(true) {			
@@ -56,6 +60,18 @@ public class DeliveryController {
 //		int sum = service.getSumTotal();
 //		
 //	}
+
+	/*
+	 * 지금 출력할 때 System.out.println("변경할 주문명(" + dto.getName() + "): ");의 형태로 출력하고 있는데
+	 * 이 경우에는  System.out.printf()를 사용하시는게 더 편할 것 같아요.
+	 * -> System.out.println("변경할 주문명(%s): ", dto.getName());
+	 * 
+	 * 알고 계실 것 같지만 print, println, printf 이렇게 3가지를 사용하고 있는데요.
+	 * printf의 경우는 + 의 형식으로 변수를 출력하는게 아닌 출력지정자(%d, %s ...)를 사용하여 출력하기 때문에
+	 * 한 줄에 변수가 많을 때 가독성이 좋아지는 것 같아요.
+	 * 
+	 * + 근데 자바에서는 printf를 별로 안쓴다는 코멘트를 봐서.. 그냥 그렇구나만 해주세요,,,,
+	 */
 
 	private void updateDelivery() {
 		//수정 번호 받기
